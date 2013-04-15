@@ -19,12 +19,12 @@
 	<body>
 		<div id="wrapper">
 			<div id="login" class="animate form position">
-				<form action="" class="form-login"> 
+				<form action="${ContextPath}/login.do" method="post" class="form-login"> 
 					<div class="content-login">
 						<div class="header">账号登录</div>
 						<div class="inputs">
-							<input name="" type="text" placeholder="" />
-							<input name="" type="password"  placeholder="" />
+							<input name="j_username" type="text" placeholder="" />
+							<input name="j_password" type="password"  placeholder="" />
 						</div>
 						<div class="link-1"><a href="#">注册</a></div>
 						<div class="link-2"><a href="#">忘记密码？</a></div>
@@ -43,7 +43,29 @@
 				</form>
 			</div>
 		</div>
+		<script src="${ContextPath}/js/jquery.min.js"></script>
 		<script src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="100420587" data-redirecturi="${scheme}://${serverName}${ContextPath}/connector/qq.htm" charset="utf-8"></script> 
-		<script>QC.Login({btnId:'qqLoginBtn'},function(){console.log(arguments);});</script>
+		<#assign Authentication = securityContextHolder.getContext().getAuthentication() />
+		<script>
+			QC.Login({
+				btnId : 'qqLoginBtn'
+			}, function() {
+				QC.Login.getMe(function(openId, accessToken) {
+					$.ajax({
+						type : 'POST',
+						url : 'connector/qq.do',
+						data : {
+							openId : openId,
+							accessToken : accessToken
+						}
+					}).done(function() {
+						location.reload();
+					}).fail(function() {
+					}).always(function() {
+					});
+					;
+				});
+			});
+		</script>
 	</body>
 </html>

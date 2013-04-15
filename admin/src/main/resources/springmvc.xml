@@ -41,7 +41,9 @@ http://www.springframework.org/schema/mvc http://www.springframework.org/schema/
             </props>
         </property>
         <property name="freemarkerVariables">
-            <map />
+            <map>
+                <entry key="securityContextHolder" value-ref="securityContextHolder" />
+            </map>
         </property>
     </bean>
     <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">

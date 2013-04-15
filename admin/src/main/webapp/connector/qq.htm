@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<script type="text/javascript"
+	src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js"
+	charset="utf-8" data-callback="true"></script>
+<script>
+	QC.Login.getMe(function(openId, accessToken) {
+		var img = new Image();
+		img.onload = img.onerror = function() {
+			img.onload = img.onerror = null;
+			img = null;
+		};
+		img.src = 'qq.do?openId=' + openId + '&accessToken=' + accessToken;
+	})
+</script>
+</head>
+<body>
+</body>
+</html>

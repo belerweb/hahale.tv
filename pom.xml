@@ -29,6 +29,7 @@
     </properties>
 
     <modules>
+        <module>common</module>
         <module>admin</module>
         <module>www</module>
     </modules>

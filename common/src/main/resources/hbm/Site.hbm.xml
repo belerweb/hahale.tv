@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="tv.hahale.common.bean">
+    <class name="Site" table="SITE">
+        <id name="id" column="ID">
+            <generator class="native" />
+        </id>
+        <property name="name" column="NAME" />
+        <property name="metaKeyword" column="META_KEYWORD" />
+        <property name="metaDescription" column="META_DESCRIPTION" />
+        <property name="copyright" column="COPYRIGHT" />
+        <property name="icp" column="ICP" />
+        <property name="statisticalCode" column="STATISTICAL_CODE" />
+        <property name="lastUpdate" column="LAST_UPDATE" not-null="true" />
+    </class>
+</hibernate-mapping>

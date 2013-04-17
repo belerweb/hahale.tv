@@ -21,6 +21,7 @@
         <dependency.jackson.version>1.9.12</dependency.jackson.version>
         <dependency.dbcp.version>1.4</dependency.dbcp.version>
         <dependency.dbutils.version>1.5</dependency.dbutils.version>
+        <dependency.commons-lang.version>2.6</dependency.commons-lang.version>
         <dependency.logback.version>1.0.9</dependency.logback.version>
         <dependency.mysql.version>5.1.24</dependency.mysql.version>
         <dependency.qqconnect.version>1.0.1</dependency.qqconnect.version>
@@ -158,6 +159,11 @@
             <groupId>commons-dbutils</groupId>
             <artifactId>commons-dbutils</artifactId>
             <version>${dependency.dbutils.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>${dependency.commons-lang.version}</version>
         </dependency>
         <!-- log dependency -->
         <dependency>

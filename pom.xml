@@ -23,6 +23,7 @@
         <dependency.dbutils.version>1.5</dependency.dbutils.version>
         <dependency.logback.version>1.0.9</dependency.logback.version>
         <dependency.mysql.version>5.1.24</dependency.mysql.version>
+        <dependency.qqconnect.version>1.0.1</dependency.qqconnect.version>
         <dependency.junit.version>4.11</dependency.junit.version>
         <dependency.jetty.version>9.0.1.v20130408</dependency.jetty.version>
         <dependency.servlet-api.version> 2.5</dependency.servlet-api.version>
@@ -173,6 +174,12 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${dependency.mysql.version}</version>
+        </dependency>
+        <!-- QQ Oauth2 -->
+        <dependency>
+            <groupId>com.belerweb</groupId>
+            <artifactId>qq-connect</artifactId>
+            <version>${dependency.qqconnect.version}</version>
         </dependency>
         <!-- test dependency -->
         <dependency>

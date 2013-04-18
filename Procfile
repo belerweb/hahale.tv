@@ -1,0 +1,1 @@
+web: java -Dfile.encoding=utf-8 $JAVA_OPTS -jar heroku/target/dependency/jetty-runner.jar --port $PORT heroku/target/context/*

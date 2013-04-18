@@ -13,6 +13,8 @@
         <property name="url" value="#{systemEnvironment['hahale.db.url']}" />
         <property name="username" value="#{systemEnvironment['hahale.db.username']}" />
         <property name="password" value="#{systemEnvironment['hahale.db.password']}" />
+        <property name="testWhileIdle" value="true" />
+        <property name="validationQuery" value="#{systemEnvironment['hahale.db.validation']}" />
     </bean>
 
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">

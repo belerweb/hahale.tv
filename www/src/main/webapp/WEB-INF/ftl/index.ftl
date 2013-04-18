@@ -8,6 +8,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="${(site.description)!}">
 		<meta name="author" content="${(site.author)!}">
+		<meta property="qc:admins" content="3434767070145646" />
 		<link href="${ContextPath}/css/bootstrap.css" rel="stylesheet">
 		<link href="${ContextPath}/css/style.css" rel="stylesheet">
 		<link href="${ContextPath}/css/icon-style.css" rel="stylesheet">

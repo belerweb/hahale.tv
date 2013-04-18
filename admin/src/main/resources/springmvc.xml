@@ -55,6 +55,4 @@ http://www.springframework.org/schema/mvc http://www.springframework.org/schema/
         <property name="alwaysUseFullPath" value="true" />
     </bean>
 
-    <context:component-scan base-package="tv.hahale.admin.controller" />
-
 </beans>

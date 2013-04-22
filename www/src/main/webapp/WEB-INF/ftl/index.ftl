@@ -9,6 +9,7 @@
 		<meta name="description" content="${(site.description)!}">
 		<meta name="author" content="${(site.author)!}">
 		<meta property="qc:admins" content="343476707014564671645060454" />
+		<meta property="wb:webmaster" content="bee8028e40dbc2a7" />
 		<link href="${ContextPath}/css/bootstrap.css" rel="stylesheet">
 		<link href="${ContextPath}/css/style.css" rel="stylesheet">
 		<link href="${ContextPath}/css/icon-style.css" rel="stylesheet">

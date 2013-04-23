@@ -26,6 +26,7 @@
         <dependency.logback.version>1.0.9</dependency.logback.version>
         <dependency.mysql.version>5.1.24</dependency.mysql.version>
         <dependency.qqconnect.version>1.0.1</dependency.qqconnect.version>
+        <dependency.weibo4j.version>2.1.1-beta2</dependency.weibo4j.version>
         <dependency.junit.version>4.11</dependency.junit.version>
         <dependency.jetty.version>9.0.0.v20130308</dependency.jetty.version>
         <dependency.servlet-api.version> 2.5</dependency.servlet-api.version>
@@ -193,11 +194,16 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>${dependency.mysql.version}</version>
         </dependency>
-        <!-- QQ Oauth2 -->
+        <!-- Oauth/Oauth2 -->
         <dependency>
             <groupId>com.belerweb</groupId>
             <artifactId>qq-connect</artifactId>
             <version>${dependency.qqconnect.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.belerweb</groupId>
+            <artifactId>weibo4j-oauth2</artifactId>
+            <version>${dependency.weibo4j.version}</version>
         </dependency>
         <!-- test dependency -->
         <dependency>

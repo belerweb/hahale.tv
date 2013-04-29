@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
-		<title>哈哈乐后台管理 - 登录</title>
+		<title>哈哈乐视频网 - 登录</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="">
 		<meta name="author" content="">
@@ -35,7 +35,7 @@
 						<div class="pull-left">合作网站账号登录</div>
 						<div class="pull-right">
 							<ul class="social-links">
-								<li class="qq text-center" id="qqLoginBtn"></li>
+								<li class="qq text-center"><a href="${ContextPath}/connector/qq_login.do"><img alt="QQ登录" src="http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/Connect_logo_7.png"></a></li>
 							</ul>
 						</div>
 						<div class="clear"></div>
@@ -44,28 +44,5 @@
 			</div>
 		</div>
 		<script src="${ContextPath}/js/jquery.min.js"></script>
-		<script src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="100420587" data-redirecturi="${scheme}://${serverName}${ContextPath}/connector/qq.htm" charset="utf-8"></script> 
-		<#assign Authentication = securityContextHolder.getContext().getAuthentication() />
-		<script>
-			QC.Login({
-				btnId : 'qqLoginBtn'
-			}, function() {
-				QC.Login.getMe(function(openId, accessToken) {
-					$.ajax({
-						type : 'POST',
-						url : 'connector/qq.do',
-						data : {
-							openId : openId,
-							accessToken : accessToken
-						}
-					}).done(function() {
-						location.reload();
-					}).fail(function() {
-					}).always(function() {
-					});
-					;
-				});
-			});
-		</script>
 	</body>
 </html>

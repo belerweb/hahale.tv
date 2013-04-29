@@ -13,7 +13,7 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
     </beans:bean>
 
     <authentication-manager>
-        <authentication-provider user-service-ref="userService" />
+        <authentication-provider user-service-ref="loginComponent" />
     </authentication-manager>
 
     <http auto-config="true" access-decision-manager-ref="accessDecisionManager" use-expressions="true">

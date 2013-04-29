@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="tv.hahale.common.bean">
+    <class name="Role" table="ROLE">
+        <id name="role" column="ROLE" type="string" length="32">
+            <generator class="assigned" />
+        </id>
+        <property name="name" column="NAME" type="string" unique="true" not-null="true" length="16" />
+    </class>
+</hibernate-mapping>

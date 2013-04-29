@@ -10,12 +10,13 @@
 		<meta name="author" content="">
 		<link href="${ContextPath}/css/style.css" rel="stylesheet">
 		<link href="${ContextPath}/css/bootstrap.css" rel="stylesheet">
-		<link rel="stylesheet" href="${ContextPath}/css/jquery-ui-1.8.16.custom.css" media="screen"  />
-		<link rel="stylesheet" href="${ContextPath}/css/chosen.css" media="screen"  />
-		<link rel="stylesheet" href="${ContextPath}/css/glisse.css">
-		<link rel="stylesheet" href="${ContextPath}/css/jquery.jgrowl.css">
-		<link rel="stylesheet" href="${ContextPath}/css/icon/font-awesome.css">    
+		<link href="${ContextPath}/css/jquery-ui-1.8.16.custom.css" rel="stylesheet">
+		<link rel="stylesheet" href="${ContextPath}/css/DT_bootstrap.css">
+		<link rel="stylesheet" href="${ContextPath}/css/icon/font-awesome.css">
 		<link rel="stylesheet" href="${ContextPath}/css/bootstrap-responsive.css">
+		<link rel="stylesheet" href="${ContextPath}/css/jquery.selectBoxIt.css">
+		<link rel="stylesheet" href="${ContextPath}/css/bootstrap-tagmanager.css">
+		<link rel="stylesheet" href="${ContextPath}/css/jquery.tagit.css">
 		<link rel="alternate stylesheet" type="text/css" media="screen" title="green-theme" href="${ContextPath}/css/color/green.css" />
 		<link rel="alternate stylesheet" type="text/css" media="screen" title="red-theme" href="${ContextPath}/css/color/red.css" />
 		<link rel="alternate stylesheet" type="text/css" media="screen" title="blue-theme" href="${ContextPath}/css/color/blue.css" />
@@ -27,6 +28,7 @@
 		<![endif]-->
 		<script language="JavaScript">
 			if(navigator.userAgent.indexOf("Firefox") >= 0) document.write("<link rel='stylesheet' href='${ContextPath}/css/moz.css' type='text/css'>");
+			window.UEDITOR_HOME_URL = '${ContextPath}/js/ueditor/';
 		</script>
 	</head>
 	<body>
@@ -41,8 +43,8 @@
 				<div class="dropdown left profile">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 						<!-- span class="double-spacer"></span -->
-						<div class="profile-avatar"><img src="${(userInfo.avatar.avatarURL50)!}" alt=""></div>
-						<div class="profile-username"><span>你好，</span> ${(userInfo.nickname)!}！</div>
+						<div class="profile-avatar"><img src="${(user.avatar)!}" alt=""></div>
+						<div class="profile-username"><span>你好，</span> ${(user.nickname)!'朋友'}！</div>
 						<div class="profile-caret"> <span class="caret"></span></div>
 						<span class="double-spacer"></span>
 					</a>
@@ -62,26 +64,37 @@
 			<!--BEGIN SIDEBAR-->
 			<div id="menu" role="navigation">
 				<ul class="main-menu">
-					<li data-mg="site"><a href="#mg=site"><i class="general"></i> 网站</a></li>
+					<li data-m="site"><a href="#m=site"><i class="tables"></i> 网站</a></li>
 				</ul>
 				<ul class="additional-menu">
-					<li class="hide" data-mg="site" data-mu="${ContextPath}/site/config.html"><a href="#mg=site;mu=${ContextPath}/site/config.html"><i class="icon-home"></i> 网站配置</a></li>
+					<li class="hide" data-m="site" data-n="site.config"><a href="#m=site;n=site.config;u=${ContextPath}/site/config.html;t=#main"><i class="icon-cogs"></i> 网站配置</a></li>
 				</ul>
 				<div class="clearfix"></div>
 			</div>
 			<!--SIDEBAR END-->
 			<!--BEGIN MAIN CONTENT-->
 			<div id="main" role="main">
+				<div class="block"><div id="mb"></div></div>
 			</div>
 			<!--MAIN CONTENT END-->
 		</div>
 		<!--/#wrapper-->
-		<script src="${ContextPath}/js/jquery.min.js"></script>
-		<script src="${ContextPath}/js/jquery-ui.min.js"></script>
-		<script src="${ContextPath}/js/bootstrap.min.js"></script>
+		<script src="${ContextPath}/js/jquery.js"></script>
+		<script src="${ContextPath}/js/bootstrap.js"></script>
+		<script src="${ContextPath}/js/bootbox.js"></script>
 		<script src="${ContextPath}/js/jqBootstrapValidation.js"></script>
+		<script src="${ContextPath}/js/jquery-ui.min.js"></script>
 		<script src="${ContextPath}/js/jquery.form.js"></script>
 		<script src="${ContextPath}/js/jquery.ba-hashchange.min.js"></script>
+		<script src="${ContextPath}/js/jquery.dataTables.js"></script>
+		<script src="${ContextPath}/js/DT_bootstrap.js"></script>
+		<script src="${ContextPath}/js/jquery.selectBoxIt.js"></script>
+		<script src="${ContextPath}/js/bootstrap-tagmanager.js"></script>
+		<script src="${ContextPath}/js/bootstrap-tagmanager-cqlybest.js"></script>
+		<script src="${ContextPath}/js/tag-it.js"></script>
+		<!--[if IE]>
+		<script src="${ContextPath}/js/Jit/Extras/excanvas.js"></script>
+		<![endif]-->
 		<script src="${ContextPath}/js/application.js"></script>
 	</body>
 </html>

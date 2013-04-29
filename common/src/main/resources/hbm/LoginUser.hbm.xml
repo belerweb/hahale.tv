@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="tv.hahale.common.bean">
+    <class name="LoginUser" table="LOGIN_USER">
+        <id name="id" column="ID" type="string" length="36">
+            <generator class="assigned" />
+        </id>
+        <property name="cellPhone" column="CELL_PHONE" type="string" unique="true" length="16" />
+        <property name="email" column="EMAIL" type="string" unique="true" length="32" />
+        <property name="loginUsername" column="USERNAME" type="string" unique="true" length="16" />
+        <property name="password" column="PASSWORD" type="string" length="32" />
+        <property name="fullname" column="FULLNAME" type="string" length="16" />
+        <property name="nickname" column="NICKNAME" type="string" length="16" />
+        <property name="avatar" column="AVATAR" type="string" length="256" />
+        <many-to-one name="qqAuth" column="QQ_OPRNID" />
+        <many-to-one name="weiboAuth" column="WEIBO_UID" />
+        <set name="roles" table="LOGIN_USER_ROLE" cascade="all">
+            <key column="ID" />
+            <many-to-many class="Role" column="ROLE" />
+        </set>
+    </class>
+</hibernate-mapping>

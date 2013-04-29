@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="tv.hahale.common.bean">
+    <class name="WeiboAuth" table="WEIBO_AUTH">
+        <id name="uid" column="UID" type="string" length="36">
+            <generator class="assigned" />
+        </id>
+        <property name="token" column="TOKEN" type="string" length="36" />
+        <property name="expireIn" column="EXPIRE_IN" />
+        <property name="createdTime" column="CREATED_TIME" />
+        <property name="lastUpdate" column="LAST_UPDATE" />
+    </class>
+</hibernate-mapping>

@@ -27,6 +27,7 @@
         <dependency.mysql.version>5.1.24</dependency.mysql.version>
         <dependency.qqconnect.version>1.0.1</dependency.qqconnect.version>
         <dependency.weibo4j.version>2.1.1-beta2-1</dependency.weibo4j.version>
+        <dependency.sms.version>1.0.0</dependency.sms.version>
         <dependency.junit.version>4.11</dependency.junit.version>
         <dependency.jetty.version>9.0.0.v20130308</dependency.jetty.version>
         <dependency.servlet-api.version> 2.5</dependency.servlet-api.version>
@@ -204,6 +205,11 @@
             <groupId>com.belerweb</groupId>
             <artifactId>weibo4j-oauth2</artifactId>
             <version>${dependency.weibo4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.belerweb</groupId>
+            <artifactId>sms</artifactId>
+            <version>${dependency.sms.version}</version>
         </dependency>
         <!-- test dependency -->
         <dependency>

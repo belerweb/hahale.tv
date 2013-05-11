@@ -7,10 +7,11 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import tv.hahale.common.bean.QQUser;
-import tv.hahale.common.oauth.QQAuthenticationToken;
+import tv.hahale.common.auth.QQAuthToken;
+import tv.hahale.common.bean.LoginUser;
+import tv.hahale.common.bean.QQAuth;
 import tv.hahale.common.service.QQConnectInitService;
-import tv.hahale.common.service.QQConnectService;
+import tv.hahale.common.service.UserService;
 
 import com.qq.connect.QQConnectException;
 import com.qq.connect.api.OpenID;
@@ -19,12 +20,12 @@ import com.qq.connect.oauth.Oauth;
 import com.qq.connect.utils.QQConnectConfig;
 
 @Controller
-public class Oauth2Controller {
+public class QQLoginController {
 
-  private static final Oauth QQ_OAUTH = new Oauth();
+  private static final Oauth OAUTH = new Oauth();
 
   @Autowired
-  private QQConnectService qqConnectService;
+  private UserService userService;
 
   @RequestMapping("/connector/qq_login.do")
   public String qqLogin(HttpServletRequest request) {
@@ -34,7 +35,7 @@ public class Oauth2Controller {
           request.getScheme() + "://" + request.getServerName() + request.getContextPath()
               + "/connector/qq.do";
       QQConnectConfig.updateProperties(QQConnectInitService.REDIRECT_URI, redirectURI);
-      redirect = "redirect:" + QQ_OAUTH.getAuthorizeURL(request);
+      redirect = "redirect:" + OAUTH.getAuthorizeURL(request);
     } catch (QQConnectException e) {
       e.printStackTrace();
     }
@@ -43,20 +44,21 @@ public class Oauth2Controller {
   }
 
   @RequestMapping("/connector/qq.do")
-  public String auth(HttpServletRequest request) {
+  public String qq(HttpServletRequest request) {
     String redirect = "redirect:/index.html";
     try {
-      AccessToken accessToken = QQ_OAUTH.getAccessTokenByRequest(request);
+      AccessToken accessToken = OAUTH.getAccessTokenByRequest(request);
       // TODO validate accessToken
-      QQUser user =
-          new QQUser(new OpenID(accessToken.getAccessToken()).getUserOpenID(), accessToken
+      QQAuth auth =
+          new QQAuth(new OpenID(accessToken.getAccessToken()).getUserOpenID(), accessToken
               .getAccessToken(), accessToken.getExpireIn());
-      qqConnectService.register(user);
-      SecurityContextHolder.getContext().setAuthentication(new QQAuthenticationToken(user));
+      LoginUser user = userService.register(auth);
+      SecurityContextHolder.getContext().setAuthentication(new QQAuthToken(user));
     } catch (QQConnectException e) {
       // TODO Auto-generated catch block
       e.printStackTrace();
     }
     return redirect;
   }
+
 }

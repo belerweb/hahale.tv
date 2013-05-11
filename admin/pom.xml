@@ -9,7 +9,7 @@
         <version>1.0.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-    <artifactId>admin.hahale.tv</artifactId>
+    <artifactId>hahale.tv-admin</artifactId>
     <packaging>war</packaging>
 
     <dependencies>

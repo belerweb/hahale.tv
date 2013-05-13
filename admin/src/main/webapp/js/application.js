@@ -115,40 +115,43 @@ $(function() {
 	});
 });
 
-window.cqlybest = {
-	parseHash : function(hash) {
-		var result = {};
-		var hashData = (hash ? hash : location.hash).match(/^#(.+)$/);
-		if (hashData) {
-			var pa = hashData[1].split(';');
-			for ( var i = 0; i < pa.length; i++) {
-				var kv = pa[i].split('=');
-				result[kv[0]] = kv[1];
+window.hahale = {
+	chooseFile : function(arg) {
+		bootbox.alert("<div id='elfinder-container'></div>", '确定', function(){
+			var files = $('#elfinder').data('files') || [];
+			if (typeof arg == 'function') {
+				arg(files);
+			} else {
+				$(arg).val(ImageServer + '/image/' + files[0]||'').trigger('change');
 			}
+		});
+		$('#elfinder-container').load(ContextPath + '/file.html');
+	},
+	parseHash : function(hash) {
+		var _hash = hash;
+		if (!_hash) {
+			_hash = location.href.split('#')[1] || '';
 		}
-		return result;
+		_hash = _hash.replace(/^#?/, '?');
+		return $.url(_hash).param();
 	},
 	buildHash : function(param) {
-		var hash = [];
-		$.each(param, function(k, v) {
-			hash.push(k + '=' + encodeURIComponent(v));
-		});
-		return '#' + hash.join(';');
+		return '#' + $.param(param);
 	},
 	ajaxSubmit : function($form, event) {
 		event.preventDefault();
 		event.stopPropagation();
 		$form.ajaxSubmit({
 			success : function(response) {
-				cqlybest.success();
+				hahale.success();
 			},
 			error : function() {
-				cqlybest.error();
+				hahale.error();
 			}
 		});
 	},
 	success : function(message, label, func) {
-		var _message = message ? messsage : '<div class="alert alert-success">操作成功</div>';
+		var _message = message ? message : '<div class="alert alert-success">操作成功</div>';
 		var _label = label ? label : '确定';
 		var _func = func ? func : function() {
 			history.go(-1);
@@ -156,7 +159,7 @@ window.cqlybest = {
 		bootbox.alert(_message, _label, _func);
 	},
 	error : function(message, label, func) {
-		var _message = message ? messsage : '<div class="alert alert-error">操作失败</div>';
+		var _message = message ? message : '<div class="alert alert-error">操作失败</div>';
 		var _label = label ? label : '确定';
 		var _func = func ? func : function() {
 		};
@@ -165,7 +168,7 @@ window.cqlybest = {
 };
 
 $(window).hashchange(function() {
-	var param = cqlybest.parseHash();
+	var param = hahale.parseHash();
 	if (param.m) {
 		// 主菜单
 		$('#menu .main-menu > li').removeClass('active');
@@ -183,7 +186,7 @@ $(window).hashchange(function() {
 			container.load(decodeURIComponent(param.u));
 		} else {
 			var hash = $('#menu .additional-menu .active a').attr('href');
-			var p = cqlybest.parseHash(hash);
+			var p = hahale.parseHash(hash);
 			$('#mb').load(p.u, function() {
 				$(param.t).load(param.u);
 			});
@@ -202,23 +205,25 @@ $(window).hashchange(function() {
 (function() {
 	$('.page-load-btn').live('click', function() {
 		$($(this).attr('data-target')).load($(this).attr('data-url'), function() {
-			var param = cqlybest.parseHash();
+			var param = hahale.parseHash();
 			delete param.u;
 			param['_t'] = new Date().getTime();
-			location.hash = cqlybest.buildHash(param);
+			location.hash = hahale.buildHash(param);
 		});
 	});
 	$('.ajax-action-btn').live('click', function() {
 		var url = $(this).attr('data-url');
+		var dataTarget = $(this).attr('data-target') || '';
 		var execute = function() {
 			$.get(url).done(function() {
-				cqlybest.success(null, null, function() {
-					var param = cqlybest.parseHash();
+				hahale.success(null, null, function() {
+					var param = hahale.parseHash();
 					param['_t'] = new Date().getTime();
-					location.hash = cqlybest.buildHash(param);
+					param['dt'] = dataTarget;
+					location.hash = hahale.buildHash(param);
 				});
 			}).fail(function() {
-				cqlybest.error();
+				hahale.error();
 			}).always(function() {
 			});
 		};

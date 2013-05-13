@@ -264,9 +264,6 @@
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
 				<version>${dependency.jetty.version}</version>
-				<configuration>
-					<scanIntervalSeconds>10</scanIntervalSeconds>
-				</configuration>
 			</plugin>
 		</plugins>
 		<pluginManagement>

@@ -44,6 +44,6 @@
 				</form>
 			</div>
 		</div>
-		<script src="${ContextPath}/js/jquery.min.js"></script>
+		<script src="${ContextPath}/js/jquery.js"></script>
 	</body>
 </html>

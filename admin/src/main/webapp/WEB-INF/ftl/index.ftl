@@ -64,10 +64,10 @@
 			<!--BEGIN SIDEBAR-->
 			<div id="menu" role="navigation">
 				<ul class="main-menu">
-					<li data-m="site"><a href="#m=site"><i class="tables"></i> 网站</a></li>
+					<li data-m="site"><a href="#m=site"><i class="site"></i> 网站</a></li>
 				</ul>
 				<ul class="additional-menu">
-					<li class="hide" data-m="site" data-n="site.config"><a href="#m=site;n=site.config;u=${ContextPath}/site/config.html;t=#main"><i class="icon-cogs"></i> 网站配置</a></li>
+					<li class="hide" data-m="site" data-n="site.config"><a href="#m=site&n=site.config&u=${ContextPath}/site/config.html&t=%23main"><i class="icon-cogs"></i> 网站配置</a></li>
 				</ul>
 				<div class="clearfix"></div>
 			</div>
@@ -79,22 +79,28 @@
 			<!--MAIN CONTENT END-->
 		</div>
 		<!--/#wrapper-->
-		<script src="${ContextPath}/js/jquery.js"></script>
-		<script src="${ContextPath}/js/bootstrap.js"></script>
-		<script src="${ContextPath}/js/bootbox.js"></script>
-		<script src="${ContextPath}/js/jqBootstrapValidation.js"></script>
-		<script src="${ContextPath}/js/jquery-ui.min.js"></script>
-		<script src="${ContextPath}/js/jquery.form.js"></script>
-		<script src="${ContextPath}/js/jquery.ba-hashchange.min.js"></script>
-		<script src="${ContextPath}/js/jquery.dataTables.js"></script>
-		<script src="${ContextPath}/js/DT_bootstrap.js"></script>
-		<script src="${ContextPath}/js/jquery.selectBoxIt.js"></script>
-		<script src="${ContextPath}/js/bootstrap-tagmanager.js"></script>
-		<script src="${ContextPath}/js/bootstrap-tagmanager-cqlybest.js"></script>
-		<script src="${ContextPath}/js/tag-it.js"></script>
+		<script type="text/javascript" src="${ContextPath}/js/jquery.js"></script>
+		<script type="text/javascript" src="${ContextPath}/js/bootstrap.js"></script>
+		<script type="text/javascript" src="${ContextPath}/js/bootbox.js"></script>
+		<script type="text/javascript" src="${ContextPath}/js/jqBootstrapValidation.js"></script>
+		<script type="text/javascript" src="${ContextPath}/js/purl.js"></script>
+		<script type="text/javascript" src="${ContextPath}/js/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="${ContextPath}/js/jquery.form.js"></script>
+		<script type="text/javascript" src="${ContextPath}/js/jquery.ba-hashchange.min.js"></script>
+		<script type="text/javascript" src="${ContextPath}/js/jquery.dataTables.js"></script>
+		<script type="text/javascript" src="${ContextPath}/js/DT_bootstrap.js"></script>
+		<script type="text/javascript" src="${ContextPath}/js/jquery.selectBoxIt.js"></script>
+		<script type="text/javascript" src="${ContextPath}/js/bootstrap-tagmanager.js"></script>
+		<script type="text/javascript" src="${ContextPath}/js/bootstrap-tagmanager-cqlybest.js"></script>
+		<script type="text/javascript" src="${ContextPath}/js/tag-it.js"></script>
+		<script type="text/javascript" src="${ContextPath}/js/ueditor/editor_config.js"></script>
+		<script type="text/javascript" src="${ContextPath}/js/ueditor/editor_all.js"></script>
+		<script type="text/javascript" src="${ContextPath}/js/elfinder.min.js"></script>
+		<script type="text/javascript" src="${ContextPath}/js/i18n/elfinder.zh_CN.js"></script>
 		<!--[if IE]>
-		<script src="${ContextPath}/js/Jit/Extras/excanvas.js"></script>
+		<script type="text/javascript" src="${ContextPath}/js/Jit/Extras/excanvas.js"></script>
 		<![endif]-->
-		<script src="${ContextPath}/js/application.js"></script>
+		<script type="text/javascript" src="${ContextPath}/js/Jit/jit.js"></script>
+		<script type="text/javascript" src="${ContextPath}/js/application.js"></script>
 	</body>
 </html>

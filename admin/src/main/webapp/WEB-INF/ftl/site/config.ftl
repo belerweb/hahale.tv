@@ -1,5 +1,5 @@
 <#assign ContextPath=springMacroRequestContext.getContextPath() />
-<div class="block">
+<div>
 	<div class="clearfix"></div>
 	<div class="grid">
 		<div class="grid-title">

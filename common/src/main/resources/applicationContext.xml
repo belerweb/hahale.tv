@@ -12,11 +12,11 @@
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
 
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-        <property name="url" value="#{systemEnvironment['hahale.db.url']}" />
-        <property name="username" value="#{systemEnvironment['hahale.db.username']}" />
-        <property name="password" value="#{systemEnvironment['hahale.db.password']}" />
+        <property name="url" value="#{T(System).getProperty('hahale.db.url', T(System).getenv('hahale.db.url'))}" />
+        <property name="username" value="#{T(System).getProperty('hahale.db.username', T(System).getenv('hahale.db.username'))}" />
+        <property name="password" value="#{T(System).getProperty('hahale.db.password', T(System).getenv('hahale.db.password'))}" />
         <property name="testWhileIdle" value="true" />
-        <property name="validationQuery" value="#{systemEnvironment['hahale.db.validation']}" />
+        <property name="validationQuery" value="#{T(System).getProperty('hahale.db.validation', T(System).getenv('hahale.db.validation'))}" />
     </bean>
 
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
@@ -28,7 +28,7 @@
         </property>
         <property name="hibernateProperties">
             <props>
-                <prop key="hibernate.dialect">#{systemEnvironment['hahale.db.dialect']}</prop>
+                <prop key="hibernate.dialect">#{T(System).getProperty('hahale.db.dialect', T(System).getenv('hahale.db.dialect'))}</prop>
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.hbm2ddl.auto">update</prop>
             </props>
